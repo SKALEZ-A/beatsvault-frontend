@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand text-white font-medium px-5 py-3 rounded-lg hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-900 font-medium px-5 py-3 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-gray-100 overflow-hidden;
+  }
+
+  .input {
+    @apply w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand transition-colors;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-gray-500 uppercase tracking-wide mb-1.5;
+  }
+}
+
+/* Custom audio player progress bar */
+.progress-track {
+  @apply h-1 bg-gray-200 rounded-full cursor-pointer relative;
+}
+
+.progress-fill {
+  @apply h-full bg-brand rounded-full pointer-events-none transition-all duration-300;
+}
+
+/* Waveform animation when playing */
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.waveform-bar {
+  @apply inline-block w-0.5 bg-brand rounded-full mx-px;
+  animation: wave 0.8s ease-in-out infinite;
+}
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.4s; }
